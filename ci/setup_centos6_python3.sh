@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION=${VERSION:-3.7.3}
+VERSION=${1:-3.7.3}
 
 # Python 3.6 stands in our way -- nuking it
 yum erase -y rh-python36
