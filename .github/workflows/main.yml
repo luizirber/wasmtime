@@ -178,8 +178,10 @@ jobs:
         architecture: x64
       if: matrix.os != 'ubuntu-latest'
     - name: Build Python 3.7
-      run: $CENTOS sh ci/setup_centos6_python37.sh
+      run: $CENTOS sh ci/setup_centos6_python3.sh
       if: matrix.os == 'ubuntu-latest'
+      env:
+        VERSION: 3.7.3
     - run: $CENTOS pip3 install setuptools wheel==0.31.1 setuptools-rust auditwheel
       shell: bash
     - run: (cd crates/misc/py && $CENTOS $python setup.py bdist_wheel)
@@ -200,8 +202,10 @@ jobs:
         architecture: x64
       if: matrix.os != 'ubuntu-latest'
     - name: Build Python 3.8
-      run: $CENTOS sh ci/setup_centos6_python38.sh
+      run: $CENTOS sh ci/setup_centos6_python3.sh
       if: matrix.os == 'ubuntu-latest'
+      env:
+        VERSION: 3.8.0
     - run: $CENTOS pip3 install setuptools wheel==0.31.1 setuptools-rust auditwheel
       shell: bash
     - run: (cd crates/misc/py && $CENTOS $python setup.py bdist_wheel)
